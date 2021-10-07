@@ -12,5 +12,20 @@ The AgreementData.xlsx has total of 10 columns. The column C,D,E,F,G is the colo
 
 ## Script
 
-The script calculates the Light's kappa statistic and Krippendarf's alpha for getting agreement score. The agreement score of whole data is 0.88. The script also produces agreement score for each set of sketch map.
+The script calculates the Light's kappa statistic and Krippendarf's alpha for getting agreement score. The agreement score of whole data is 0.88. The script also produces agreement score for each set of sketch map. 
+
+## For running the script:
+
+1. you can either directly click on [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CharuManivannan/Generalization---an-issue-in-Sketch-map-alignment/HEAD?urlpath=rstudio)
+
+    On the right side, in the files tab, please select "Agreementanalysis.Rmd" and Click Run --> Run all.
+
+2. If the binder does not work for you, you can also download the github repository. Unzip the folder.This method requires you to download R studio Version 1.4.1106. Open R studio --> Open install.R --> run. This will install all the required packages. Open "Agreementanalysis.Rmd" and either knit or run --> run all.
+
+
+  [1]: https://github.com/CharuManivannan/Generalization---an-issue-in-Sketch-map-alignment
+  
+  
+  
+ On successful running of the script, you should be able to get two results . One is the **Agreement Score** : agreement score for whole data and the other is the **scoreMatrix** : agreement score for each set of Sketch map.
 
