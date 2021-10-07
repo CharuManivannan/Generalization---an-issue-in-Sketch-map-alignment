@@ -1,0 +1,54 @@
+---
+title: "Agreement Analysis"
+author: "Charu"
+date: "07/10/2021"
+output: html_document
+---
+
+```{r, setup, include=FALSE}
+library(xlsx)
+library(irr)
+```
+
+## Agreement analysis of all maps
+
+The agreement score reported in the paper is the kappa value produced by the Light's kappa statistics.
+
+
+```{r echo=FALSE}
+ExperimentData = read.xlsx("AGREEMENTDATA.xlsx",sheetIndex = 1,header=TRUE )
+AgreementData = ExperimentData[c(3:7)]
+
+#kappa score for Whole data - has variability
+AgreementScore = kappam.light(AgreementData)
+AgreementScore
+```
+
+## Agreement analysis for each sketch map
+
+The first column represents the sketch map number, the second column represents the kappa value from light's kappa and the third column corresponds to the krippendorf's alpha. Both light's kappa and krippendorf's alpha are statistics for calculating agreement among participants. 
+
+
+```{r echo=FALSE, warning=FALSE}
+Sketch_list = list('Sketch0','Sketch1','Sketch2','Sketch3','Sketch4','Sketch5','Sketch6','Sketch7','Sketch8','Sketch9','Sketch10')
+
+
+scoreMatrix = matrix(,nrow=1,ncol=3)
+
+for (S in Sketch_list){
+  SketchData = ExperimentData[ExperimentData$Sketch == S, ]
+  SketchData = SketchData[c(3:7)]
+  #Kappa
+  SketchAScore = kappam.light(SketchData)
+  K = SketchAScore$value
+  #Krippendorff's alpha
+  SketchDatamatrix = matrix(unlist(SketchData),ncol=5,nrow=nrow(SketchData))
+  T_SketchDatamatrix = t(SketchDatamatrix)
+  Alphascore_Sketch = kripp.alpha(T_SketchDatamatrix, method = "nominal")
+  A = Alphascore_Sketch$value
+  scoreMatrix=rbind(scoreMatrix,c(S,K,A))
+}
+
+scoreMatrix = scoreMatrix[-1,]
+scoreMatrix
+```
