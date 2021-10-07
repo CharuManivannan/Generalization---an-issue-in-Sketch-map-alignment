@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ```{r, setup, include=FALSE}
-library(xlsx)
+library(readxl)
 library(irr)
 ```
 
@@ -16,7 +16,7 @@ The agreement score reported in the paper is the kappa value produced by the Lig
 
 
 ```{r echo=FALSE}
-ExperimentData = read.xlsx("AGREEMENTDATA.xlsx",sheetIndex = 1,header=TRUE )
+ExperimentData = read_xlsx("AGREEMENTDATA.xlsx")
 AgreementData = ExperimentData[c(3:7)]
 
 #kappa score for Whole data - has variability
