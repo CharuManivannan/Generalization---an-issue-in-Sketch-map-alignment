@@ -8,47 +8,73 @@ output: html_document
 ```{r, setup, include=FALSE}
 library(readxl)
 library(irr)
+library(caret)
+library(epiR)
+library(knitR)
 ```
 
-## Agreement analysis of all maps
+## Agreement analysis of sketch map
 
-The agreement score reported in the paper is the kappa value produced by the Light's kappa statistics.
-
-
-```{r echo=FALSE}
-ExperimentData = read_xlsx("AGREEMENTDATA.xlsx")
-AgreementData = ExperimentData[c(3:7)]
-
-#kappa score for Whole data - has variability
-AgreementScore = kappam.light(AgreementData)
-AgreementScore
-```
-
-## Agreement analysis for each sketch map
-
-The first column represents the sketch map number, the second column represents the kappa value from light's kappa and the third column corresponds to the krippendorf's alpha. Both light's kappa and krippendorf's alpha are statistics for calculating agreement among participants. 
+The agreement score reported in the paper is the kappa value produced by PABAK - Prevalance and Bias adjusted Kappa analyis.
 
 
 ```{r echo=FALSE, warning=FALSE}
-Sketch_list = list('Sketch0','Sketch1','Sketch2','Sketch3','Sketch4','Sketch5','Sketch6','Sketch7','Sketch8','Sketch9','Sketch10')
+SketchmapData = read.xlsx("AGREEMENTDATA - Copy.xlsx",sheet = 1,col_names = TRUE)
+#confusion matrix for pabak analysis - Sketch map
+data_1 = confusionMatrix(as.factor(SketchmapData$P2),reference = as.factor(SketchmapData$P1))
+data_2 = confusionMatrix(as.factor(SketchmapData$P3),reference = as.factor(SketchmapData$P1))
+data_3 = confusionMatrix(as.factor(SketchmapData$P4),reference = as.factor(SketchmapData$P1))
+data_4 = confusionMatrix(as.factor(SketchmapData$P5),reference = as.factor(SketchmapData$P1))
+data_5 = confusionMatrix(as.factor(SketchmapData$P3),reference = as.factor(SketchmapData$P2))
+data_6 = confusionMatrix(as.factor(SketchmapData$P4),reference = as.factor(SketchmapData$P2))
+data_7 = confusionMatrix(as.factor(SketchmapData$P5),reference = as.factor(SketchmapData$P2))
+data_8 = confusionMatrix(as.factor(SketchmapData$P4),reference = as.factor(SketchmapData$P3))
+data_9 = confusionMatrix(as.factor(SketchmapData$P5),reference = as.factor(SketchmapData$P3))
+data_10 = confusionMatrix(as.factor(SketchmapData$P5),reference = as.factor(SketchmapData$P4))
 
+data_list = list(data_1,data_2,data_3,data_4,data_5,data_6,data_7,data_8,data_9,data_10)
 
-scoreMatrix = matrix(,nrow=1,ncol=3)
+Analysis_results = matrix(nrow=4,ncol=10)
 
-for (S in Sketch_list){
-  SketchData = ExperimentData[ExperimentData$Sketch == S, ]
-  SketchData = SketchData[c(3:7)]
-  #Kappa
-  SketchAScore = kappam.light(SketchData)
-  K = SketchAScore$value
-  #Krippendorff's alpha
-  SketchDatamatrix = matrix(unlist(SketchData),ncol=5,nrow=nrow(SketchData))
-  T_SketchDatamatrix = t(SketchDatamatrix)
-  Alphascore_Sketch = kripp.alpha(T_SketchDatamatrix, method = "nominal")
-  A = Alphascore_Sketch$value
-  scoreMatrix=rbind(scoreMatrix,c(S,K,A))
+# pabak values for sketch map (Table 8)
+for (i in 1:10){
+analysis =  epi.kappa(data_list[[i]]$table, method = "watson", alternative = "greater", conf.level = 0.95)
+Analysis_results[1,i]=analysis$pabak$est
+Analysis_results[2,i]=analysis$z$p.value
+Analysis_results[3,i]=analysis$pabak$lower
+Analysis_results[4,i]=analysis$pabak$upper
 }
+```
 
-scoreMatrix = scoreMatrix[-1,]
-scoreMatrix
+## Agreement analysis of metric map
+
+
+MetricmapData = read.xlsx("AGREEMENTDATA - Copy.xlsx",sheet = 1,col_names = TRUE)
+
+```{r echo=FALSE, warning=FALSE}
+#confusion matrix for pabak analysis - Metric map
+metricdata_1 = confusionMatrix(as.factor(MetricmapData$X4),reference = as.factor(MetricmapData$X3))
+metricdata_2 = confusionMatrix(as.factor(MetricmapData$X5),reference = as.factor(MetricmapData$X3))
+metricdata_3 = confusionMatrix(as.factor(MetricmapData$X6),reference = as.factor(MetricmapData$X3))
+metricdata_4 = confusionMatrix(as.factor(MetricmapData$X7),reference = as.factor(MetricmapData$X3))
+metricdata_5 = confusionMatrix(as.factor(MetricmapData$X5),reference = as.factor(MetricmapData$X4))
+metricdata_6 = confusionMatrix(as.factor(MetricmapData$X6),reference = as.factor(MetricmapData$X4))
+metricdata_7 = confusionMatrix(as.factor(MetricmapData$X7),reference = as.factor(MetricmapData$X4))
+metricdata_8 = confusionMatrix(as.factor(MetricmapData$X6),reference = as.factor(MetricmapData$X5))
+metricdata_9 = confusionMatrix(as.factor(MetricmapData$X7),reference = as.factor(MetricmapData$X5))
+metricdata_10 = confusionMatrix(as.factor(MetricmapData$X7),reference = as.factor(MetricmapData$X6))
+
+
+metricdata_list = list(metricdata_1,metricdata_2,metricdata_3,metricdata_4,metricdata_5,metricdata_6,metricdata_7,metricdata_8,metricdata_9,metricdata_10)
+
+MetricAnalysis_results = matrix(nrow=4,ncol=10)
+
+# pabak values for metric map (Table 8)
+for (i in 1:10){
+  analysis =  epi.kappa(metricdata_list[[i]]$table, method = "watson", alternative = "greater", conf.level = 0.95)
+  MetricAnalysis_results[1,i]=analysis$pabak$est
+  MetricAnalysis_results[2,i]=analysis$z$p.value
+  MetricAnalysis_results[3,i]=analysis$pabak$lower
+  MetricAnalysis_results[4,i]=analysis$pabak$upper
+}
 ```
