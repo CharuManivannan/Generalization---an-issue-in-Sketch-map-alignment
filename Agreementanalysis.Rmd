@@ -10,7 +10,7 @@ library(readxl)
 library(irr)
 library(caret)
 library(epiR)
-library(knitR)
+library(knitr)
 ```
 
 ## Agreement analysis of sketch map
@@ -19,7 +19,7 @@ The agreement score reported in the paper is the kappa value produced by PABAK -
 
 
 ```{r echo=FALSE, warning=FALSE}
-SketchmapData = read.xlsx("AGREEMENTDATA - Copy.xlsx",sheet = 1,col_names = TRUE)
+SketchmapData = read_xlsx("AGREEMENTDATA - Copy.xlsx",sheet = 1,col_names = TRUE)
 #confusion matrix for pabak analysis - Sketch map
 data_1 = confusionMatrix(as.factor(SketchmapData$P2),reference = as.factor(SketchmapData$P1))
 data_2 = confusionMatrix(as.factor(SketchmapData$P3),reference = as.factor(SketchmapData$P1))
@@ -49,9 +49,9 @@ Analysis_results[4,i]=analysis$pabak$upper
 ## Agreement analysis of metric map
 
 
-MetricmapData = read.xlsx("AGREEMENTDATA - Copy.xlsx",sheet = 1,col_names = TRUE)
 
 ```{r echo=FALSE, warning=FALSE}
+MetricmapData = read_xlsx("AGREEMENTDATA - Copy.xlsx",sheet = 2,col_names = FALSE)
 #confusion matrix for pabak analysis - Metric map
 metricdata_1 = confusionMatrix(as.factor(MetricmapData$X4),reference = as.factor(MetricmapData$X3))
 metricdata_2 = confusionMatrix(as.factor(MetricmapData$X5),reference = as.factor(MetricmapData$X3))
