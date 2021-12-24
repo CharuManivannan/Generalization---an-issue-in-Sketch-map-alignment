@@ -52,17 +52,20 @@ Analysis_results[4,i]=analysis$pabak$upper
 
 ```{r echo=FALSE, warning=FALSE}
 MetricmapData = read_xlsx("AGREEMENTDATA - Copy.xlsx",sheet = 2,col_names = FALSE)
+colnames(MetricmapData, do.NULL = FALSE)
+colnames(MetricmapData) <- c("Features","Correct","P1","P2","P3","P4","P5","Mapnum","Drawnornot","Type")
+
 #confusion matrix for pabak analysis - Metric map
-metricdata_1 = confusionMatrix(as.factor(MetricmapData$X4),reference = as.factor(MetricmapData$X3))
-metricdata_2 = confusionMatrix(as.factor(MetricmapData$X5),reference = as.factor(MetricmapData$X3))
-metricdata_3 = confusionMatrix(as.factor(MetricmapData$X6),reference = as.factor(MetricmapData$X3))
-metricdata_4 = confusionMatrix(as.factor(MetricmapData$X7),reference = as.factor(MetricmapData$X3))
-metricdata_5 = confusionMatrix(as.factor(MetricmapData$X5),reference = as.factor(MetricmapData$X4))
-metricdata_6 = confusionMatrix(as.factor(MetricmapData$X6),reference = as.factor(MetricmapData$X4))
-metricdata_7 = confusionMatrix(as.factor(MetricmapData$X7),reference = as.factor(MetricmapData$X4))
-metricdata_8 = confusionMatrix(as.factor(MetricmapData$X6),reference = as.factor(MetricmapData$X5))
-metricdata_9 = confusionMatrix(as.factor(MetricmapData$X7),reference = as.factor(MetricmapData$X5))
-metricdata_10 = confusionMatrix(as.factor(MetricmapData$X7),reference = as.factor(MetricmapData$X6))
+metricdata_1 = confusionMatrix(as.factor(MetricmapData$P2),reference = as.factor(MetricmapData$P1))
+metricdata_2 = confusionMatrix(as.factor(MetricmapData$P3),reference = as.factor(MetricmapData$P1))
+metricdata_3 = confusionMatrix(as.factor(MetricmapData$P4),reference = as.factor(MetricmapData$P1))
+metricdata_4 = confusionMatrix(as.factor(MetricmapData$P5),reference = as.factor(MetricmapData$P1))
+metricdata_5 = confusionMatrix(as.factor(MetricmapData$P3),reference = as.factor(MetricmapData$P2))
+metricdata_6 = confusionMatrix(as.factor(MetricmapData$P4),reference = as.factor(MetricmapData$P2))
+metricdata_7 = confusionMatrix(as.factor(MetricmapData$P5),reference = as.factor(MetricmapData$P2))
+metricdata_8 = confusionMatrix(as.factor(MetricmapData$P4),reference = as.factor(MetricmapData$P3))
+metricdata_9 = confusionMatrix(as.factor(MetricmapData$P5),reference = as.factor(MetricmapData$P3))
+metricdata_10 = confusionMatrix(as.factor(MetricmapData$P5),reference = as.factor(MetricmapData$P4))
 
 
 metricdata_list = list(metricdata_1,metricdata_2,metricdata_3,metricdata_4,metricdata_5,metricdata_6,metricdata_7,metricdata_8,metricdata_9,metricdata_10)
