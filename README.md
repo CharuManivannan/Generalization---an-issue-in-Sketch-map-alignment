@@ -8,12 +8,11 @@ The experiment was conducted as a part of the research to analyse if participant
 
 ## Data
 
-The AgreementData.xlsx has total of 10 columns. The column C,D,E,F,G is the color given by each participant - P1,P2,P3,P4,P5 for different features. 
+The AgreementData-Copy.xlsx has total of 10 columns. The column C,D,E,F,G is the color given by each participant - P1,P2,P3,P4,P5 for different features. Sheet 1 corresponds to colorisation of sketch maps and sheet 2 --> metric maps.
 
 ## Script
 
-The script calculates the Light's kappa statistic and Krippendarf's alpha for getting agreement score. The agreement score of whole data is 0.88. The script also produces agreement score for each set of sketch map. 
-
+The script calculates the Prevalance and Bias Adjusted Kappa (PABAK) for getting agreement score. 
 ## For running the script:
 
 1. you can either directly click on [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CharuManivannan/Generalization---an-issue-in-Sketch-map-alignment/HEAD?urlpath=rstudio)
@@ -27,5 +26,4 @@ The script calculates the Light's kappa statistic and Krippendarf's alpha for ge
   
   
   
- On successful running of the script, you should be able to get two results . One is the **Agreement Score** : agreement score for whole data and the other is the **scoreMatrix** : agreement score for each set of Sketch map.
-
+ On successful running of the script, you should be able to get two results . One is the pabak analysis for sketch map and the other is for metric map. Both of these values are found in Table 8 of the paper.
