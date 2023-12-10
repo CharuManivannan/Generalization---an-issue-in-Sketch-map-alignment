@@ -1,0 +1,30 @@
+Completeness:,44.18%
+Generalization:,8
+Correctness:    ,      Precision: 0.95           Recall: 0.08           F-Score: nil
+Completeness of Sketch Map:,,,ID: sketchmap
+Spatial Features,Features in Base map,Drawn Features,Completeness (%)
+Street segments,29,22,75.86
+Landmarks,72,9,12.5
+Missing Features / Extra Features,73,0,0
+Overall Completeness:,,,44.18
+Generalization :
+Type,Count
+Streets
+Omission Merge,3
+Omission Merge (Multi-Multi),0
+Abstraction to show existence,0
+Junctions
+Junction Merge,0
+Roundabout Collapse,1
+Buildings
+Collapse,4
+Amalgamation,0
+Abstraction to show existence,0
+Correctness of sketch map:
+Considered Qulitative Spatial Aspects,Relations in Base Map,Relation in Sketch Map,Correct Relations,Wrong Relations,Missing Relations,Accuracy Rate (%)
+Topological Relations between Landmarks and Regions,2556,36,36,0,2520,100
+Linear Ordering of Landmarks along Street-segments,1035,28,21,0,1014,75
+Left-Right Relations of Landmarks wrt. Street-segments,96,17,14,0,82,82.35
+Topological Relations between Street-segments and Regions/Landmarks,2088,198,198,0,1890,100
+Connectivity of Street-segments,406,231,231,0,175,100
+Relative Orientation of Connected Street-segments,36,36,20,16,0,55.56

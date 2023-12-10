@@ -1,0 +1,32 @@
+BaseId , SketchId , Generalization Type
+12 15 17 19 21,S2 S1 S0,Multi-Multi Omission Merge
+14 16 18 20 22,S5 S4 S3,Abstraction to show existence
+13,S6,No generalization
+11,S7,No generalization
+7,S8,No generalization
+8,S9,No generalization
+0,S10,No generalization
+9,S11,No generalization
+5,S12,No generalization
+6,S13,No generalization
+10,S14,No generalization
+4,S15,No generalization
+25,S16,No generalization
+26,S17,No generalization
+24,S18,No generalization
+3,S19,No generalization
+1,S20,No generalization
+23,S21,No generalization
+2,S22,No generalization
+28,S23,No generalization
+30,S24,No generalization
+27,S25,No generalization
+29,S26,No generalization
+31,S27,No generalization
+51,S28,No generalization
+32 33 34,S33 S32,Abstraction to show existence
+47 46 45 44,S34,Amalgamation
+36 37,S35,Amalgamation
+38 39 40 43 41 42,S29 S30 S31,Abstraction to show existence
+Features missing in sketch map, 35,48,49,50
+Features drawn extra in sketch map, 

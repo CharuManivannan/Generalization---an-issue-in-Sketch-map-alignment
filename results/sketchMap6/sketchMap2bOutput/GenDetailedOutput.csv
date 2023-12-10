@@ -1,0 +1,34 @@
+BaseId , SketchId , Generalization Type
+4,S0,JunctionMerge
+7,S1,JunctionMerge
+8,S2,JunctionMerge
+5,S3,JunctionMerge
+36,S4,JunctionMerge
+10,S5,JunctionMerge
+27,S6,JunctionMerge
+12,S7,No generalization
+11,S8,No generalization
+15,S9,No generalization
+18 20 22 24,S10,OmissionMerge
+26,S11,No generalization
+25,S12,No generalization
+28,S13,No generalization
+30,S14,No generalization
+29,S15,No generalization
+55,S16,No generalization
+31,S18,No generalization
+32,S19,No generalization
+33,S20,No generalization
+34,S21,No generalization
+35,S22,No generalization
+38,S23,No generalization
+59,S24,No generalization
+58,S25,No generalization
+47,S26,No generalization
+48,S27,No generalization
+50,S28,Collapse
+44 45 46 40 41 42 43,S30,Amalgamation
+51 53 52 54,S29,Amalgamation
+62,S32,No generalization
+Features missing in sketch map, 0,1,2,3,6,9,13,14,16,17,19,21,23,37,39,49,56,57,0,1,2,3,6,9,13,14,16,17,19,21,23,37,39,49,56,57
+Features drawn extra in sketch map, 
