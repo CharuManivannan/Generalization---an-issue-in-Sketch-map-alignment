@@ -23,6 +23,8 @@ The script calculates the Prevalance and Bias Adjusted Kappa (PABAK) for getting
 
 2. If the binder does not work for you, you can also download the github repository. Unzip the folder.This method requires you to download R studio Version 1.4.1106. Open R studio --> Open install.R --> run. This will install all the required packages. Open "Agreementanalysis.Rmd" and either knit or run --> run all.
 
+ On successful running of the script, you should be able to get two results . One is the pabak analysis for sketch map and the other is for metric map. Both of these values are found in Table 8 of the paper.
+
 ## Paper 2 - An Algorithmic Approach to Detect Generalization in Sketch Maps from Sketch Map Alignment
 
 The folder "resultsfromonlinetool" contains the analysis of sketch maps using the algorithmic approach explained in the paper. Each folder within results contains an input folder and an output folder. The input folder contains two images files for sketch map and metric map, two geojson files for sketch map and metric map and an alignment file. Upload these input files in sketchmapia.de following the procedure in https://github.com/ifgi-sil/SketchMapia-SoftwareSuite to produce the results in the output folder.
@@ -30,7 +32,7 @@ The folder "resultsfromonlinetool" contains the analysis of sketch maps using th
 The analysis presented in the paper is the comparison of these results in the output folder and the results from the participants in the previous study (folder - results from participants).
 
   
- On successful running of the script, you should be able to get two results . One is the pabak analysis for sketch map and the other is for metric map. Both of these values are found in Table 8 of the paper.
+
 
 
 
