@@ -29,7 +29,7 @@ The script calculates the Prevalance and Bias Adjusted Kappa (PABAK) for getting
 
 The folder "resultsfromonlinetool" contains the analysis of sketch maps using the algorithmic approach explained in the paper. Each folder within results contains an input folder and an output folder. The input folder contains two images files for sketch map and metric map, two geojson files for sketch map and metric map and an alignment file. Upload these input files in sketchmapia.de following the procedure in https://github.com/ifgi-sil/SketchMapia-SoftwareSuite to produce the results in the output folder.
 
-The analysis presented in the paper is the comparison of these results in the output folder and the results from the participants in the previous study (folder - results from participants).
+The analysis presented in the paper is the comparison of these results in the output folder and the results from the participants in the previous study (folder - "resultsfromparticipants").
 
   
 
